@@ -1,7 +1,3 @@
-# Geometric-Sequence
+# Geometric-Sequence [Tₙ = ar²]
 
-@settings {
-  font-size: 100;
-}
 
-Tₙ = ar²
