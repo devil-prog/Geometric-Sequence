@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 
 #Functions
 class app:
@@ -17,28 +18,61 @@ class app:
             msg.pack()
             print(out)
 
+    def calculate2(self,Tn):
+        if (self.e2/self.e1) == (self.e3/self.e2):
+            st1 = int(Tn)/self.e1
+            r = (self.e2/self.e1)
+            i = 1
+            j = r
+            while 10000000 > r:
+                r = r*j
+                i = i+1
+                if r == st1:
+                    break
+            out = i+1
+            top = tk.Toplevel()
+            top.geometry("250x250")
+            msg = tk.Label(top, text=out)
+            msg.config(font=('Helvetica bold',40))
+            msg.pack()
+            print(out)
+            
+                
+            
 def get_entry_fields():
     a = app(e1.get(),e2.get(),e3.get())
-    a.calculate(en.get())     
+    try:
+        a.calculate(en.get())
+    except:
+        a.calculate2(eTn.get())
 
 top = tk.Tk()
+top.title("Geometric-Sequence")
 #Code to add widgets
 #Added lables
 tk.Label(top, text="Enter first 3 numbers").grid(row=0)
-tk.Label(top, text="Enter Element number").grid(row=1)
+tk.Label(top, text="To Find Value of Element",).grid(row=1,column=2)
+tk.Label(top, text="Enter Element number").grid(row=2)
+tk.Label(top, text="To Find Element of Given Value").grid(row=3,column=2)
+tk.Label(top, text="Enter Element value").grid(row=4)
+
+lf = ttk.Labelframe(top, text='Label').grid(row=1)
 
 #Added entrys
 e1 = tk.Entry(top)
 e2 = tk.Entry(top)
 e3 = tk.Entry(top)
 en = tk.Entry(top)
+eTn = tk.Entry(top)
 
 #Organize entrys
 e1.grid(row=0, column=1)
 e2.grid(row=0, column=2)
 e3.grid(row=0, column=3)
-en.grid(row=1, column=1)
-    
-tk.Button(top, text='Submit', command=get_entry_fields).grid(row=3, column=1, sticky=tk.W, pady=4)
+en.grid(row=2, column=1)
+eTn.grid(row=4, column=1)
+
+row, column = top.grid_size()    
+tk.Button(top, text='Submit', command=get_entry_fields).grid(row=row+1, column=column, sticky=tk.NS, padx=20, pady=20)
 
 top.mainloop()
