@@ -14,7 +14,7 @@ class app:
             top = tk.Toplevel()
             top.geometry("250x250")
             msg = tk.Label(top, text=out)
-            msg.config(font=('Helvetica bold',40))
+            msg.config(font=('Helvetica bold', 40))
             msg.pack()
             print(out)
 
@@ -28,14 +28,17 @@ class app:
                 r = r*j
                 i = i+1
                 if r == st1:
+                    out = i+1
+                    top = tk.Toplevel()
+                    top.geometry("250x250")
+                    msg = tk.Label(top, text=out)
+                    msg.config(font=('Helvetica bold',40))
+                    msg.pack()
+                    print(out)
                     break
-            out = i+1
-            top = tk.Toplevel()
-            top.geometry("250x250")
-            msg = tk.Label(top, text=out)
-            msg.config(font=('Helvetica bold',40))
-            msg.pack()
-            print(out)
+                if r > st1:
+                    print("This number is not in the sequence")
+                    break
             
                 
             
