@@ -11,12 +11,14 @@ class app:
     def calculate(self,n):
         if (self.e2/self.e1) == (self.e3/self.e2):
             out = self.e1*((self.e2/self.e1)**(int(n)-1))
-            top = tk.Toplevel()
-            top.geometry("250x250")
-            msg = tk.Label(top, text=out)
-            msg.config(font=('Helvetica bold', 40))
-            msg.pack()
-            print(out)
+            if 10000000000000000 > out:
+                top = tk.Toplevel()
+                top.geometry("720x72")
+                msg = tk.Label(top, text=out)
+                msg.config(font=('Helvetica bold', 40))
+                msg.pack()
+            else:
+                print(out)
 
     def calculate2(self,Tn):
         if (self.e2/self.e1) == (self.e3/self.e2):
@@ -30,7 +32,7 @@ class app:
                 if r == st1:
                     out = i+1
                     top = tk.Toplevel()
-                    top.geometry("250x250")
+                    top.geometry("720x72")
                     msg = tk.Label(top, text=out)
                     msg.config(font=('Helvetica bold',40))
                     msg.pack()
