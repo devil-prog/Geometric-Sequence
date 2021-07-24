@@ -106,6 +106,7 @@ tk.Label(top, text="To Find Value of Element",).grid(row=3,column=2)
 tk.Label(top, text="Enter Element number").grid(row=4)
 tk.Label(top, text="To Find Element of Given Value").grid(row=5,column=2)
 tk.Label(top, text="Enter Element value").grid(row=6)
+tk.Label(top, text="Press \"x\" to close").grid(row=8)
 
 #Added entrys
 e1 = tk.Entry(top)
@@ -128,6 +129,7 @@ eTn.grid(row=6, column=1)
 row, column = top.grid_size()    
 tk.Button(top, text='Submit', command=get_entry_fields).grid(row=7, column=4, sticky=tk.NS, padx=20, pady=20)
 top.bind('<Return>', enter)
+top.bind('x', exit)
 
 top.mainloop()
 
