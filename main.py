@@ -59,13 +59,18 @@ def clearNtrys():
    eTn.delete(0, END) 
 
 def secondopt():
-    a = app(int(ea.get()),int(ea.get())*int(er.get()),int(ea.get())*int(er.get())*int(er.get()))
-    if not en.get():
-        a.calculate2(eTn.get())
-        clearNtrys()
-    else:
-        a.calculate(en.get())
-        clearNtrys()
+    try:
+        a = app(int(ea.get()),int(ea.get())*int(er.get()),int(ea.get())*int(er.get())*int(er.get()))
+        if not en.get():
+            a.calculate2(eTn.get())
+            clearNtrys()
+        else:
+            a.calculate(en.get())
+            clearNtrys()
+    except:
+        print("Oops!", sys.exc_info()[0], "occurred.")
+        print("Next entry.")
+        print()
 
 def get_entry_fields():
     if not e1.get():
